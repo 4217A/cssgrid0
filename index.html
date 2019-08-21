@@ -25,6 +25,11 @@
                 font-family:  Arial, Helvetica, sans-serif;
             }
 
+            /* RR */
+            .clickwrap{
+                cursor: pointer;
+            }
+
             .pagegrid {
                 display: grid;
                 grid-template-columns: 1fr 20fr 1fr; /* this will as many pictures 200px min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
@@ -65,10 +70,20 @@
                 height: 100%;
             }
 
+            .gridbox > a {
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-content: center;
+                justify-items: center;
+                justify-self: center;
+                text-justify: center;
+            }
+
             .gridboxcentertext {
                 /* position */
                 position: absolute;
-                top: 37%; /* was 50% */
+                top: 42%; /* was 50% */
                 left: 50%; /* was 50% */
                 transform: translate(-50%, -50%); /* use with above 50 50 to completely center */
 
@@ -81,7 +96,7 @@
             }
 
             /* computer size */
-            @media screen and (min-width: 601px) {
+            @media screen and (min-width: 951px) {
 
             }
 
@@ -137,16 +152,18 @@
 
         <div><!--Left--></div>
         <div class="mygrid">
-            <div class="gridbox">
-                <!--<img src="img/universe 1200 x 600.jpg" alt="img1">-->
-                <a href="https://www.pexels.com/photo/sky-space-milky-way-stars-110854/" target="_blank">
-                    <!-- this is a picture element, and it will display different pictures based on screen size -->
-                    <picture>
-                    <source media="(min-width: 400px)" srcset="img/universe1200x600.jpg" style="width:100%;height:100%;border:0;" />
-                    <source media="(min-width: 0px)" srcset="img/universe360x640.jpg" style="width:100%;height:100%;border:0;" />
-                    <img src="img/universe1200x600.jpg" alt="img1" style="width:100%;height:100%;border:0;" />
-                    </picture>
-                </a>
+            <div class="gridbox clickwrap" onclick='window.open("https://unsplash.com/photos/4dpAqfTbvKA");'>
+                <!-- to be fixed in the future RR -->
+                <!-- spacer needed so that the image after stretches with the screen -->
+                <!-- make it work without the spacer  -->
+                <img src="img/spacer1200x600.jpg" alt="spacer">
+                
+                <picture>
+                    <source media="(min-width: 400px)" srcset="img/universe1200x600.jpg" style="width:100%;" />
+                    <source media="(min-width: 0px)" srcset="img/universe360x640.jpg" style="width:100%;" />
+                    <img src="img/universe1200x600.jpg" alt="img1" style="width:100%;" />
+                </picture>
+                
                 <div class="gridboxcentertext">The universe an amazing place<br/>
                     <span class="lighttext">so very much to see</span></div>
             </div>
@@ -161,16 +178,18 @@
 
         <div><!--Left--></div>
         <div class="mygrid">
-            <div class="gridbox mygridright">
+            <div class="gridbox mygridright clickwrap" onclick='window.open("https://www.pexels.com/photo/planet-earth-87651/");'>
                 <img  src="img/earth600x600.jpg" alt="img1">
             </div>
-            <div class="gridbox mygridleft"><img src="img/tree600x600.jpg" alt="img2"></div>
+            <div class="gridbox mygridleft clickwrap" onclick='window.open("https://www.pexels.com/photo/nature-forest-trees-park-38136/");'>
+                <img src="img/tree600x600.jpg" alt="img2">
+            </div>
         </div>
         <div><!--Right--></div>
 
         <div><!--Left--></div>
         <div class="mygrid">
-            <div class="gridbox">
+            <div class="gridbox clickwrap" onclick='window.open("https://pixabay.com/photos/solar-system-sun-mercury-venus-439046/");'>
                 <img src="img/planets1200x600.jpg" alt="img1">
             </div>
         </div>
@@ -184,11 +203,11 @@
 
         <div><!--Left--></div>
         <div class="mygrid">
-            <div class="gridbox mygridright">
+            <div class="gridbox mygridright clickwrap" onclick='window.open("https://www.pexels.com/photo/sky-space-telescope-universe-41951/");'>
                 <img src="img/galaxy1-600x600.jpg" alt="img1">
                 <div class="gridboxcentertext">Amazing</div>
             </div>
-            <div class="gridbox mygridleft">
+            <div class="gridbox mygridleft clickwrap" onclick='window.open("https://www.pexels.com/photo/photo-of-deep-sky-object-816608/");'>
                 <img src="img/galaxy2-600x600.jpg" alt="img2">
                 <div class="gridboxcentertext">Wondferful</div>
             </div>
@@ -197,14 +216,15 @@
 
         <div><!--Left--></div>
         <div class="mygrid">
-            <div class="gridbox mygridright">
+            <div class="gridbox mygridright clickwrap" onclick='window.open("https://www.pexels.com/photo/sky-space-dark-galaxy-2150/");'>
                 <img src="img/galaxy3-600x600.jpg" alt="img1">
                 <div class="gridboxcentertext">Mysterious</div>
             </div>
-            <div class="gridbox mygridleft"><img src="img/galaxy4-600x600.jpg" alt="img2">
-            <div class="gridboxcentertext">Universe</div>
-        </div>
-    </div>
+            <div class="gridbox mygridleft clickwrap" onclick='window.open("https://unsplash.com/photos/rTZW4f02zY8");'>
+                <img src="img/galaxy4-600x600.jpg" alt="img2">
+                <div class="gridboxcentertext">Universe</div>
+            </div>
+        </div>  
         <div><!--Right--></div>
 
         <div><!--Left--></div>
