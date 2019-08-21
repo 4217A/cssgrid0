@@ -32,7 +32,7 @@
 
             .pagegrid {
                 display: grid;
-                grid-template-columns: 1fr 20fr 1fr; /* this will as many pictures 200px min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                grid-template-columns: 1fr 70fr 1fr; /* this will as many pictures 200px min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
                 grid-gap: 0.5vw;
                 /* no justify center here */
             }
@@ -113,8 +113,19 @@
 
             /* phone size */
             @media screen and (max-width: 600px) {
+                h2 {
+                text-align: center;
+                font-size: 22px;
+                font-weight: 700;
+                }
+
+                h6 {
+                text-align: center;
+                font-size: 10px;
+                font-weight: 400;
+                }
                 .mygrid {
-                grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* this will as many pictures Xpx min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* this will as many pictures Xpx min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
                 justify-items: center;
                 grid-gap: 0.5vw;
                 }
@@ -133,7 +144,7 @@
                 top: 50%; /* was 50% */
                 left: 50%; /* was 50% */
 
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: 700;
                 }
             }
@@ -154,18 +165,24 @@
         <div class="mygrid">
             <div class="gridbox clickwrap" onclick='window.open("https://unsplash.com/photos/4dpAqfTbvKA");'>
                 <!-- to be fixed in the future RR -->
-                <!-- spacer needed so that the image after stretches with the screen -->
+                <!-- spacer needed so that the image after stretches with the screen, but now working correctly on phone -->
                 <!-- make it work without the spacer  -->
-                <img src="img/spacer1200x600.jpg" alt="spacer">
-                
+                <!-- picture element not working with grid  -->
+                <!-- <img src="img/spacer1200x600.jpg" alt="spacer">-->
+                <!--
                 <picture>
                     <source media="(min-width: 400px)" srcset="img/universe1200x600.jpg" style="width:100%;" />
                     <source media="(min-width: 0px)" srcset="img/universe360x640.jpg" style="width:100%;" />
                     <img src="img/universe1200x600.jpg" alt="img1" style="width:100%;" />
                 </picture>
-                
+                -->
+                <div class="gridbox mygridright clickwrap" onclick='window.open("https://www.pexels.com/photo/planet-earth-87651/");'>
+                    <img  src="img/universe1200x600.jpg" alt="img1">
+                </div>
+                    
                 <div class="gridboxcentertext">The universe an amazing place<br/>
-                    <span class="lighttext">so very much to see</span></div>
+                    <span class="lighttext">so very much to see</span>
+                </div>
             </div>
         </div>
         <div><!--Right--></div>
