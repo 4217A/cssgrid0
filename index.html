@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Grid</title>
+
+        <!-- this meta is needed for all pages, it will help display the page properly on phones -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            h2 {
+                text-align: center;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            h6 {
+                text-align: center;
+                font-size: 12px;
+                font-weight: 400;
+            }
+
+            body {
+                background-color: #0B0B0B;
+                color: #F2F2F2;
+                font-family:  Arial, Helvetica, sans-serif;
+            }
+
+            .pagegrid {
+                display: grid;
+                grid-template-columns: 1fr 20fr 1fr; /* this will as many pictures 200px min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                grid-gap: 0.5vw;
+                /* no justify center here */
+            }
+
+            .mygrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* this will as many pictures Xpx min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                justify-items: center;
+                grid-gap: 0.5vw;
+            }
+
+            .mygridleft {
+                justify-self: left;
+            }
+
+            .mygridright {
+                justify-self: right;
+            }
+
+            .mysmallgrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* this will as many pictures Xpx min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                justify-items: center;
+                grid-gap: 1em;
+            }
+
+            .gridbox {
+                position: relative;
+                text-align: center; 
+                color: #F2F2F2;
+            }
+
+            .gridbox > img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .gridboxcentertext {
+                /* position */
+                position: absolute;
+                top: 37%; /* was 50% */
+                left: 50%; /* was 50% */
+                transform: translate(-50%, -50%); /* use with above 50 50 to completely center */
+
+                font-size: 28px;
+                font-weight: 700;
+                }
+            
+            .lighttext {
+                font-weight: 400;
+            }
+
+            /* computer size */
+            @media screen and (min-width: 601px) {
+
+            }
+
+            /* tablet size */
+            @media screen and (max-width: 950px) {
+                .mygridleft {
+                    justify-self: center;
+                }
+
+                .mygridright {
+                    justify-self: center;
+                }
+            }
+
+            /* phone size */
+            @media screen and (max-width: 600px) {
+                .mygrid {
+                grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* this will as many pictures Xpx min and 1 frame max in width as it can fit - this IS reponsive to zoom YEAH :) */
+                justify-items: center;
+                grid-gap: 0.5vw;
+                }
+
+                .mygridleft {
+                    justify-self: center;
+                }
+
+                .mygridright {
+                    justify-self: center;
+                }
+
+                .gridboxcentertext {
+                /* position */
+                position: absolute;
+                top: 50%; /* was 50% */
+                left: 50%; /* was 50% */
+
+                font-size: 24px;
+                font-weight: 700;
+                }
+            }
+
+        
+        </style>
+    </head>
+    <body>
+    <div class="pagegrid">
+
+        <div><!--Left--></div>
+        <div>
+        <br/>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div class="mygrid">
+            <div class="gridbox">
+                <!--<img src="img/universe 1200 x 600.jpg" alt="img1">-->
+                <a href="https://www.pexels.com/photo/sky-space-milky-way-stars-110854/" target="_blank">
+                    <!-- this is a picture element, and it will display different pictures based on screen size -->
+                    <picture>
+                    <source media="(min-width: 400px)" srcset="img/universe1200x600.jpg" style="width:100%;height:100%;border:0;" />
+                    <source media="(min-width: 0px)" srcset="img/universe360x640.jpg" style="width:100%;height:100%;border:0;" />
+                    <img src="img/universe1200x600.jpg" alt="img1" style="width:100%;height:100%;border:0;" />
+                    </picture>
+                </a>
+                <div class="gridboxcentertext">The universe an amazing place<br/>
+                    <span class="lighttext">so very much to see</span></div>
+            </div>
+        </div>
+        <div><!--Right--></div>
+    
+        <div><!--Left--></div>
+        <div>
+        <h2 class="lighttext">Earth our beautiful home. One blue green gem full of life.</h2>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div class="mygrid">
+            <div class="gridbox mygridright">
+                <img  src="img/earth600x600.jpg" alt="img1">
+            </div>
+            <div class="gridbox mygridleft"><img src="img/tree600x600.jpg" alt="img2"></div>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div class="mygrid">
+            <div class="gridbox">
+                <img src="img/planets1200x600.jpg" alt="img1">
+            </div>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div>
+        <h2 class="lighttext">Galaxies and beyond. So much wonder to explore.</h2>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div class="mygrid">
+            <div class="gridbox mygridright">
+                <img src="img/galaxy1-600x600.jpg" alt="img1">
+                <div class="gridboxcentertext">Amazing</div>
+            </div>
+            <div class="gridbox mygridleft">
+                <img src="img/galaxy2-600x600.jpg" alt="img2">
+                <div class="gridboxcentertext">Wondferful</div>
+            </div>
+        </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div class="mygrid">
+            <div class="gridbox mygridright">
+                <img src="img/galaxy3-600x600.jpg" alt="img1">
+                <div class="gridboxcentertext">Mysterious</div>
+            </div>
+            <div class="gridbox mygridleft"><img src="img/galaxy4-600x600.jpg" alt="img2">
+            <div class="gridboxcentertext">Universe</div>
+        </div>
+    </div>
+        <div><!--Right--></div>
+
+        <div><!--Left--></div>
+        <div>
+        <h6>Created 2019 - Click on each image to go to image source - Have a great day!</h6>
+        </div>
+        <div><!--Right--></div>
+
+    </div>
+    </body>
+</html>
